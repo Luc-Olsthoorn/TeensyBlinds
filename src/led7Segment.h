@@ -5,10 +5,21 @@
 //E4------C2
 //----D3----
 //-------DP7
+//pin->position
+//1->4 
+//2->3
+
+//4->2
+//5->7
+//6->1
+//7->0
+
+//9->5
+//10->6
 class LEDSegment{
 	private:
 		int LEDSegmentArray[8];
-		int led[8][8]={{1,0,0,1,1,1,1,1},{0,0,1,0,0,1,0,1},{0,0,0,0,1,1,0,1}};
+		int led[8][8]={{0,0,0,1,0,1,0,1},{1,0,0,1,1,1,1,1},{0,0,1,0,0,1,0,1},{0,0,0,0,1,1,0,1},{1,0,0,1,1,0,0,1},{0,1,0,0,1,0,0,1}};
 		int last;
 	public:
 		//store array
@@ -36,17 +47,7 @@ class LEDSegment{
 		}
 		void changeNum(int num){
 			if(last != num){
-				switch(num){
-					case 1:
-						change(0);
-					break;
-					case 2: 
-						change(1);
-					break;
-					case 3: 
-						change(2);
-					break;
-				}
+				change(num);
 			}
 			last = num;
 			
